@@ -16,7 +16,7 @@ import { CursosModalComponent } from './cursos-modal/cursos-modal.component';
 })
 export class CursosComponent implements OnInit {
 
-  appName: string = 'Alumnos';
+  appName: string = 'Cursos';
 
   dataSource: MatTableDataSource<any>;
   displayedColumns: string[] = [
