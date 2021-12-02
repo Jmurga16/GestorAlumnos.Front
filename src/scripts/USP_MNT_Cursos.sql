@@ -57,7 +57,10 @@ BEGIN
 
     BEGIN
 		SELECT
-		  *
+		  nIdCurso,
+			TRIM(sCodCur) AS 'sCodCur',
+      sNomCur,
+      nCreditos
 		FROM Cursos
 		WHERE
       nIdCurso = @nIdCurso
@@ -80,8 +83,8 @@ BEGIN
 				  SELECT @nCreditos = 'COD'+right('000' + convert(varchar(3), @Correlativo), 3)
 					
 				  INSERT INTO Cursos
-						  (sCodCur, sNomCur,  nCreditos,  nCreditos)
-				  VALUES	(@sCodCur, @sNomCur, @nCreditos, @nCreditos)
+						  (sCodCur, sNomCur,  nCreditos)
+				  VALUES	(@sCodCur, @sNomCur, @nCreditos)
 
 				  SELECT CONCAT('1|',@nCreditos)
 		  		

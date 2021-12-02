@@ -58,7 +58,10 @@ BEGIN
 
     BEGIN
       SELECT
-				  *
+        nIdAlumno,
+				TRIM(sCodAlu) AS 'sCodAlu',
+        sNombres,
+        sApellidos
       FROM Alumnos
       WHERE nIdAlumno = @nIdAlumno
     END
@@ -74,7 +77,7 @@ BEGIN
 			  SELECT @Correlativo = ISNULL(MAX(nIdAlumno), 0) + 1 FROM [Alumnos];
 
 		  END	
-
+      
 		  BEGIN
     	
 				  SELECT @sCodAlu = 'COD'+right('0000' + convert(varchar(5), @Correlativo), 5)
@@ -93,9 +96,10 @@ BEGIN
 	ELSE IF @sOpcion = '04'  -- ACTUALIZAR
 	  BEGIN
       BEGIN
-			  SET @nIdAlumno	= (SELECT valor FROM @tParametro WHERE id = 1);
-			  SET @sNombres		= (SELECT valor FROM @tParametro WHERE id = 2);
-        SET @sApellidos	= (SELECT valor FROM @tParametro WHERE id = 3);
+			  
+			  SET @sNombres		= (SELECT valor FROM @tParametro WHERE id = 1);
+        SET @sApellidos	= (SELECT valor FROM @tParametro WHERE id = 2);
+        SET @nIdAlumno	= (SELECT valor FROM @tParametro WHERE id = 3);
 
         SELECT @sCodAlu = sCodAlu FROM Alumnos WHERE nIdAlumno = @nIdAlumno
 		  END	
