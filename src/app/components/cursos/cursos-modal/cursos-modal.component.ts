@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CursosService } from 'src/app/services/cursos.service';
 
 @Component({
   selector: 'app-cursos-modal',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursosModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private cursosService: CursosService
+  ) { }
 
   ngOnInit(): void {
   }

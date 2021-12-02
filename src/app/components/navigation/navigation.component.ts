@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
   isShowing = false;
 
   listaNav = [
-    { id: 1, name: 'Alumnos', route: 'alumnos', icon: 'build', subMenu: 0, mostrar: false },
+    { id: 1, name: 'Alumnos', route: 'alumnos', icon: 'person', subMenu: 0, mostrar: false },
     { id: 2, name: 'Cursos', route: 'cursos', icon: 'assignment', subMenu: 0, mostrar: false },
     { id: 3, name: 'Alumnos por Curso', route: 'codigos', icon: 'assignment_ind', subMenu: 2, mostrar: true },
     

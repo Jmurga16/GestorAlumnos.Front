@@ -1,5 +1,4 @@
-USE DB_PagoEfectivo
-GO
+
 USE DB_ParcialDAD
 GO
 
@@ -124,6 +123,8 @@ BEGIN
 		  END	
 		
 			  BEGIN
+
+          DELETE FROM [Alu_Cur] WHERE nIdAlumno = @nIdAlumno
                   
 			    DELETE FROM [Alumnos] WHERE nIdAlumno = @nIdAlumno
           

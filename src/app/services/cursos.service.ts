@@ -12,7 +12,7 @@ export class CursosService {
 
   constructor(private http: HttpClient) { }
 
-  fnServiceCurso(sOpcion: string, pParametro: any): Observable<any> {
+  fnServiceCursos(sOpcion: string, pParametro: any): Observable<any> {
     const urlEndPoint = this.url + 'CursoService';
     const httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
