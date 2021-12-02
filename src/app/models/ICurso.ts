@@ -10,3 +10,9 @@ export class Curso {
         this.nCreditos = nCreditos        
     }
 }
+
+
+export interface CursoData {
+    accion: number;
+    nIdCurso:number;  
+}

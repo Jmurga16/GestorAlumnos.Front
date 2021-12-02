@@ -1,7 +1,3 @@
-
-USE DB_ParcialDAD
-GO
-
 CREATE PROCEDURE [dbo].[USP_MNT_Cursos]          
             
 	@sOpcion VARCHAR(2) = '',   
@@ -71,8 +67,8 @@ BEGIN
 	ELSE IF @sOpcion = '03'  --INSERT
 	BEGIN
 		  BEGIN
-			  SET @sNomCur		= (SELECT valor FROM @tParametro WHERE id = 1);
-        SET @nCreditos  = (SELECT valor FROM @tParametro WHERE id = 2);
+			SET @sNomCur		= (SELECT valor FROM @tParametro WHERE id = 1);
+			SET @nCreditos  = (SELECT valor FROM @tParametro WHERE id = 2);
 						
 			  SELECT @Correlativo = ISNULL(MAX(nIdCurso), 0) + 1 FROM [Cursos];
 
@@ -80,13 +76,13 @@ BEGIN
 
 		  BEGIN
     	
-				  SELECT @nCreditos = 'COD'+right('000' + convert(varchar(3), @Correlativo), 3)
+				  SELECT @sCodCur = 'CUR'+right('000' + convert(varchar(3), @Correlativo), 3)
 					
 				  INSERT INTO Cursos
 						  (sCodCur, sNomCur,  nCreditos)
 				  VALUES	(@sCodCur, @sNomCur, @nCreditos)
 
-				  SELECT CONCAT('1|',@nCreditos)
+				  SELECT CONCAT('1|',@sCodCur)
 		  		
 		  END
 		
@@ -95,9 +91,10 @@ BEGIN
 	ELSE IF @sOpcion = '04'  -- ACTUALIZAR
 	BEGIN
       BEGIN
-			  SET @nIdCurso	= (SELECT valor FROM @tParametro WHERE id = 1);
-			  SET @sNomCur		= (SELECT valor FROM @tParametro WHERE id = 2);
-        SET @nCreditos	= (SELECT valor FROM @tParametro WHERE id = 3);
+			  
+			  SET @sNomCur		= (SELECT valor FROM @tParametro WHERE id = 1);
+        SET @nCreditos	= (SELECT valor FROM @tParametro WHERE id = 2);
+		SET @nIdCurso	= (SELECT valor FROM @tParametro WHERE id = 3);
 
         SELECT @sCodCur = sNomCur FROM Cursos WHERE nIdCurso = @nIdCurso
 

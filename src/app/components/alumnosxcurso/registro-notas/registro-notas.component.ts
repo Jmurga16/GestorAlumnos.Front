@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Curso } from 'src/app/models/ICurso';
 import { AlumnosService } from 'src/app/services/alumnos.service';
+import { AlumnosxcursoService } from 'src/app/services/alumnosxcurso.service';
 import { CursosService } from 'src/app/services/cursos.service';
 import Swal from 'sweetalert2';
 import { Alumno } from './../../../models/IAlumno';
@@ -23,8 +24,12 @@ export class RegistroNotasComponent implements OnInit {
   constructor(
     private alumnosService: AlumnosService,
     private cursosService: CursosService,
-
-  ) { }
+    private alumnosxcursoService: AlumnosxcursoService
+  ) { 
+    this.fAlumno = new FormControl();
+    this.fCurso = new FormControl();
+    this.fNota = new FormControl();
+  }
 
   ngOnInit(): void {
 
@@ -38,7 +43,7 @@ export class RegistroNotasComponent implements OnInit {
 
     let nIdAlumno = this.fAlumno.value
     let nIdCurso = this.fCurso.value
-    let nNota = this.fNota.value
+    let nNota = this.fCurso.value
 
     if (this.fnValidar()) {
       let pParametro = [];
@@ -47,17 +52,22 @@ export class RegistroNotasComponent implements OnInit {
       pParametro.push(nIdCurso);
       pParametro.push(nNota);
 
+      console.log(pParametro)
+
       //Llamar al servicio de Alumnos para Guardar
-      this.alumnosService.fnServiceAlumnos('03', pParametro).subscribe({
+      this.alumnosxcursoService.fnServiceAlumnosxCurso('03', pParametro).subscribe({
         next: (data) => {
+          console.log(data)
           //Si es válido, retornar mensaje de exito
           if (data.cod == 1) {
             Swal.fire({
-              title: data.cod.mensaje,
+              title: data.mensaje,
               icon: 'success',
               timer: 3500
             }).then(() => {
-
+              this.fAlumno.setValue("");
+              this.fCurso.setValue("");
+              this.fNota.setValue("");
             });
           }
         },

@@ -12,13 +12,11 @@
 
             <mat-card-content>
 
-
-
                 <div class="example-container clsCenter">
                     <mat-form-field class="selectMat selectResp" appearance="fill">
                         <mat-label>Alumno</mat-label>
-                        <mat-select formControlName="nIdAlumno">
-                            <mat-option *ngFor="let opc of lAlumnos" [value]="opc.nIdAlumno" [formControl]="fAlumno">
+                        <mat-select [formControl]="fAlumno">
+                            <mat-option *ngFor="let opc of lAlumnos" [value]="opc.nIdAlumno">
                                 {{opc.sNombres}} {{opc.sApellidos}}
                             </mat-option>
                         </mat-select>
@@ -28,8 +26,8 @@
                 <div class="example-container clsCenter">
                     <mat-form-field class="selectMat selectResp" appearance="fill">
                         <mat-label>Curso</mat-label>
-                        <mat-select formControlName="nIdAlumno">
-                            <mat-option *ngFor="let opc of lCursos" [value]="opc.nIdCurso" [formControl]="fCurso">
+                        <mat-select [formControl]="fCurso">
+                            <mat-option *ngFor="let opc of lCursos" [value]="opc.nIdCurso">
                                 {{opc.sNomCur}}
                             </mat-option>
                         </mat-select>
