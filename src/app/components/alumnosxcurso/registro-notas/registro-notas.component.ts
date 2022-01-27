@@ -43,7 +43,7 @@ export class RegistroNotasComponent implements OnInit {
 
     let nIdAlumno = this.fAlumno.value
     let nIdCurso = this.fCurso.value
-    let nNota = this.fCurso.value
+    let nNota = this.fNota.value
 
     if (this.fnValidar()) {
       let pParametro = [];
