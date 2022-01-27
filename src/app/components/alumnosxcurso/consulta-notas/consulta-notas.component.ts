@@ -164,10 +164,10 @@ export class ConsultaNotasComponent implements OnInit {
     let sumaCred: number = 0
     if (this.listaNotas.length > 0) {
       for (let i = 0; i < this.listaNotas.length; i++) {
-        if (this.listaNotas[0].nNota != null) {
-          notaCred = notaCred + (this.listaNotas[0].nNota * this.listaNotas[0].nCreditos)
+        if (this.listaNotas[i].nNota != null) {
+          notaCred = notaCred + (this.listaNotas[i].nNota * this.listaNotas[i].nCreditos)
         }
-        sumaCred = sumaCred + this.listaNotas[0].nCreditos
+        sumaCred = sumaCred + this.listaNotas[i].nCreditos
       }
       this.promedio = (notaCred / sumaCred);
     }
