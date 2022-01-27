@@ -52,12 +52,11 @@ export class RegistroNotasComponent implements OnInit {
       pParametro.push(nIdCurso);
       pParametro.push(nNota);
 
-      console.log(pParametro)
 
       //Llamar al servicio de Alumnos para Guardar
       this.alumnosxcursoService.fnServiceAlumnosxCurso('03', pParametro).subscribe({
         next: (data) => {
-          console.log(data)
+      
           //Si es válido, retornar mensaje de exito
           if (data.cod == 1) {
             Swal.fire({

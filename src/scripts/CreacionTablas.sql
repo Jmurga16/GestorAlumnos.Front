@@ -8,7 +8,8 @@ CREATE TABLE Alumnos(
     nIdAlumno  INT NOT NULL IDENTITY(1,1) PRIMARY KEY ,
     sCodAlu    CHAR(10),
 	  sNombres   VARCHAR(50),
-    sApellidos VARCHAR(50)
+    sApellidos VARCHAR(50),
+    nEdad INT
 )
 GO
 

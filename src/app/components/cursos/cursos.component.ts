@@ -76,9 +76,6 @@ export class CursosComponent implements OnInit {
   //#region Abrir Modal
   async fnAbrirModal(accion: number, nIdCurso: number) {
 
-    console.log(accion)
-    console.log(nIdCurso)
-
     //Constante para abrir el modal
     const dialogRef = this.dialog.open(CursosModalComponent, {
       width: '50rem',

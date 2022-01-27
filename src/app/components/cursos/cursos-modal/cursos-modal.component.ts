@@ -74,7 +74,6 @@ export class CursosModalComponent implements OnInit {
         this.formGroup?.controls['sNomCur'].setValue(data[0].sNomCur);
         this.formGroup?.controls['nCreditos'].setValue(data[0].nCreditos);
 
-        console.log(data);
       });
 
   }

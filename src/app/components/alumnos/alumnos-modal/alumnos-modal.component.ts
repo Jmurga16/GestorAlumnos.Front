@@ -29,7 +29,8 @@ export class AlumnosModalComponent implements OnInit {
       nIdAlumno: [0, Validators.required],
       sCodAlu: [""],
       sNombres: ["", Validators.required],
-      sApellidos: ["", Validators.required]
+      sApellidos: ["", Validators.required],
+      nEdad: ""
     });
 
   }
@@ -76,8 +77,8 @@ export class AlumnosModalComponent implements OnInit {
         this.formGroup?.controls['sCodAlu'].setValue(data[0].sCodAlu);
         this.formGroup?.controls['sNombres'].setValue(data[0].sNombres);
         this.formGroup?.controls['sApellidos'].setValue(data[0].sApellidos);
+        this.formGroup?.controls['nEdad'].setValue(data[0].nEdad);
 
-        console.log(data);
       });
 
   }
@@ -104,6 +105,8 @@ export class AlumnosModalComponent implements OnInit {
       //Llenar formulario      
       pParametro.push(this.formGroup?.controls['sNombres'].value);
       pParametro.push(this.formGroup?.controls['sApellidos'].value);
+      pParametro.push(this.formGroup?.controls['nEdad'].value);
+
       pParametro.push(this.nIdAlumno);
 
       //Llamar servicio de almacenes 05 / 06
