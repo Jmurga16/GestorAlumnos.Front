@@ -1,4 +1,4 @@
-# AppParcialDadFront
+# GestorNotas.FrontEnd
 
 1. Haber Compilado el Back-End (https://github.com/Jmurga16/GestorNotas.BackEnd)
 2. Clonar en Visual Studio Code.
