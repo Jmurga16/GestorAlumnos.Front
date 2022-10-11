@@ -67,7 +67,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
         <!--Mat Paginator-->
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        <mat-paginator [length]="length" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
     </div>
 
     <div *ngIf="listaNotas.length>0">

@@ -102,9 +102,9 @@ export class CursosComponent implements OnInit {
     let sTitulo: string, sRespuesta: string;
 
     //Asignar Titulo de Mensaje 
-    sTitulo = '¿Desea eliminar el Alumno?';
+    sTitulo = '¿Desea eliminar el Curso?';
     //Asignar Respuesta segun cambio
-    sRespuesta = 'Se eliminó el Alumno con éxito';
+    sRespuesta = 'Se eliminó el Curso con éxito';
 
     //Mensaje de confirmacion
     var resp = await Swal.fire({

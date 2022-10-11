@@ -25,7 +25,7 @@ export class RegistroNotasComponent implements OnInit {
     private alumnosService: AlumnosService,
     private cursosService: CursosService,
     private alumnosxcursoService: AlumnosxcursoService
-  ) { 
+  ) {
     this.fAlumno = new FormControl();
     this.fCurso = new FormControl();
     this.fNota = new FormControl();
@@ -56,7 +56,7 @@ export class RegistroNotasComponent implements OnInit {
       //Llamar al servicio de Alumnos para Guardar
       this.alumnosxcursoService.fnServiceAlumnosxCurso('03', pParametro).subscribe({
         next: (data) => {
-      
+
           //Si es válido, retornar mensaje de exito
           if (data.cod == 1) {
             Swal.fire({
@@ -68,6 +68,13 @@ export class RegistroNotasComponent implements OnInit {
               this.fCurso.setValue("");
               this.fNota.setValue("");
             });
+          }
+          else {
+            Swal.fire({
+              title: data.mensaje,
+              icon: 'warning',
+              timer: 6000
+            })
           }
         },
         error: (e) => console.error(e),

@@ -101,7 +101,7 @@ export class AlumnosComponent implements OnInit {
     let sTitulo: string, sRespuesta: string;
 
     //Asignar Titulo de Mensaje 
-    sTitulo = '¿Desea eliminar el Alumno?';
+    sTitulo = '¿Desea eliminar el Alumno seleccionado?';
     //Asignar Respuesta segun cambio
     sRespuesta = 'Se eliminó el Alumno con éxito';
 

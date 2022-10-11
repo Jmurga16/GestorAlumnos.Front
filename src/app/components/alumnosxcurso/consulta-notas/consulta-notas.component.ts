@@ -16,7 +16,7 @@ export class ConsultaNotasComponent implements OnInit {
 
   fCodigo = new FormControl;
   promedio: number = 0
-
+  length: number = 0
   listaNotas: Notas[] = []
 
   dataSource: MatTableDataSource<any>;
@@ -28,10 +28,8 @@ export class ConsultaNotasComponent implements OnInit {
     'nNota'
   ];
 
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
-  @ViewChild(MatSort)
-  sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private alumnoxCursoService: AlumnosxcursoService,
@@ -62,20 +60,19 @@ export class ConsultaNotasComponent implements OnInit {
           this.dataSource = new MatTableDataSource(this.listaNotas);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+          this.length = this.listaNotas.length;
 
           this.fnPromediar();
         }
         else {
           Swal.fire({
             title: 'Advertencia',
-            text: 'El codigo del Alumno no existe',
+            text: 'El codigo del Alumno no existe o No tiene notas registradas',
             icon: 'warning'
           })
         }
 
       });
-
-
 
   }
   //#endregion
@@ -174,7 +171,7 @@ export class ConsultaNotasComponent implements OnInit {
     else {
       this.promedio = 0
     }
-
+    this.promedio = (Number)(this.promedio.toFixed(2));
   }
   //#endregion
 
