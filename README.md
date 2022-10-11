@@ -1,6 +1,6 @@
-# GestorNotas.FrontEnd
+# GestorAlumnos.Front
 
-1. Haber Compilado el Back-End (https://github.com/Jmurga16/GestorNotas.BackEnd)
+1. Haber Compilado el Back-End (https://github.com/Jmurga16/GestorAlumnos.Back)
 2. Clonar en Visual Studio Code.
 3. Abrir consola del visual studio.
 4. Ejecutar el comando "npm i" o "npm i --legacy-peer-deps" (si tiene otra versión de node).
